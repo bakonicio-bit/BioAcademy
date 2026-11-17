@@ -1,8 +1,9 @@
 (() => {
   'use strict';
   const tracks = [
-    {id:'clockwork',title:'Industrial Music Box',subtitle:'Clockwork & mystery',file:'assets/audio/industrial-music-box.mp3',source:'https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100812'},
-    {id:'orchestra',title:'Machinations',subtitle:'Orchestral momentum',file:'assets/audio/machinations.mp3',source:'https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100510'}
+    {id:'clockwork',title:'Romantic Violin',subtitle:'Csárdás: Csardas
+',file:'assets/audio/Romantic-Violin.mp3',source:'https://music.youtube.com/watch?v=4X5CXo2AX6I'},
+    {id:'orchestra',title:'Waltz No.2',subtitle:'Cihat Aşkın',file:'assets/audio/Waltz-No.2.mp3',source:'https://music.youtube.com/watch?v=Lj-oZRVqPew'}
   ];
   const saved=(key,fallback)=>{try{return localStorage.getItem(key)??fallback;}catch{return fallback;}};
   const save=(key,value)=>{try{localStorage.setItem(key,String(value));}catch{}};
