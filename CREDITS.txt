@@ -1,0 +1,28 @@
+STEAMPUNK BIOACADEMY — LIFE & STEEL
+
+World and character illustrations: SteamPunk Bioacademy project.
+Observatory landscape and living-engine illustration created for this website.
+
+MUSIC
+
+Industrial Music Box
+Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons Attribution 4.0 International.
+https://creativecommons.org/licenses/by/4.0/
+Source: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100812
+
+Machinations
+Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons Attribution 4.0 International.
+https://creativecommons.org/licenses/by/4.0/
+Source: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100510
+
+The original recordings are included as MP3 files. The website controls their
+volume and loops playback. Short mechanical interface effects are synthesized.
+
+FONTS
+
+Cormorant Garamond, DM Sans and IBM Plex Mono are requested from Google Fonts.
+System serif, sans-serif and monospace fonts provide local fallbacks.
+
+This package does not grant third parties ownership of the story or its art.

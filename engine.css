@@ -1,0 +1,211 @@
+/* The Living Engine. All illustration and entrance effects stay inside the gate. */
+#intro-engine {
+  position: relative;
+  isolation: isolate;
+  pointer-events: none;
+  transition: opacity 900ms ease, transform 1200ms cubic-bezier(.22,.68,.2,1);
+}
+
+#intro-engine::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 18% 20% 16%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(171,188,113,.1), rgba(161,139,79,.025) 48%, transparent 72%);
+  opacity: .45;
+  transition: opacity 3s ease, transform 4s ease;
+}
+
+#intro-engine .engine-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 59vh;
+  margin-inline: auto;
+  overflow: visible;
+}
+
+#intro-engine .engine-gear {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ve-gear-turn 64s linear infinite;
+  will-change: transform;
+}
+
+#intro-engine .engine-gear--counter { animation-direction: reverse; }
+#intro-engine .engine-gear--small { animation-duration: 39s; }
+
+#intro-engine .engine-organic-crown {
+  transform-box: fill-box;
+  transform-origin: 50% 85%;
+  animation: ve-tissue-breath 6.4s ease-in-out infinite;
+}
+
+#intro-engine .engine-core-glow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ve-core-breath 4.8s ease-in-out infinite;
+}
+
+#intro-engine .engine-heart {
+  transform-box: fill-box;
+  transform-origin: 50% 55%;
+  opacity: .56;
+  animation: ve-heartbeat 3.6s ease-in-out infinite;
+}
+
+#intro-engine .engine-fiber {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+}
+
+#intro-engine .engine-needle {
+  transform-box: view-box;
+  transform-origin: 196px 329px;
+  transform: rotate(-106deg);
+  transition: transform 2200ms cubic-bezier(.18,.72,.25,1);
+}
+
+#intro-engine .engine-float {
+  transform: translateY(16px);
+  transition: transform 5s cubic-bezier(.16,.7,.3,1);
+}
+
+#intro-engine .engine-steam { opacity: 0; }
+#intro-engine .engine-bubble { opacity: .2; }
+
+#intro-engine .engine-mote {
+  animation: ve-mote-drift 8s ease-in-out infinite;
+  opacity: .26;
+}
+
+#intro-engine .engine-mote--two { animation-delay: -3.2s; }
+#intro-engine .engine-mote--three { animation-delay: -5.8s; }
+
+#gate.engine-pressurizing #intro-engine::before {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+#gate.engine-pressurizing #intro-engine .engine-gear { animation-duration: 16s; }
+#gate.engine-pressurizing #intro-engine .engine-gear--small { animation-duration: 9.75s; }
+#gate.engine-pressurizing #intro-engine .engine-needle { transform: rotate(-39deg); }
+#gate.engine-pressurizing #intro-engine .engine-float { transform: translateY(-16px); }
+
+#gate.engine-pressurizing #intro-engine .engine-steam {
+  animation: ve-steam-rise 5.5s ease-out infinite;
+}
+
+#gate.engine-pressurizing #intro-engine .engine-steam--two { animation-delay: 1.3s; }
+#gate.engine-pressurizing #intro-engine .engine-steam--three { animation-delay: 2.9s; }
+
+#gate.engine-pressurizing #intro-engine .engine-bubble {
+  animation: ve-bubble-rise 4.8s ease-in infinite;
+}
+
+#gate.engine-pressurizing #intro-engine .engine-bubble--two { animation-delay: -1.5s; }
+#gate.engine-pressurizing #intro-engine .engine-bubble--three { animation-delay: -3s; }
+
+#gate.engine-growing #intro-engine .engine-fiber {
+  animation: ve-fiber-awaken 2700ms cubic-bezier(.2,.58,.2,1) both;
+  animation-delay: var(--fiber-delay, 0ms);
+}
+
+#gate.engine-growing #intro-engine .engine-needle { transform: rotate(12deg); }
+#gate.engine-growing #intro-engine .engine-heart { opacity: .94; }
+
+#gate.engine-awake #intro-engine .engine-needle { transform: rotate(56deg); }
+#gate.engine-awake #intro-engine .engine-core-glow { animation-duration: 2.8s; }
+#gate.engine-awake #intro-engine .engine-heart { animation-duration: 2.8s; }
+#gate.engine-awake #intro-engine .engine-float { transform: translateY(-29px); }
+
+#gate.shutters-open #intro-engine {
+  opacity: 0;
+  transform: scale(1.045);
+}
+
+#gate.engine-complete { pointer-events: none; }
+#gate.engine-complete #intro-engine * { animation-play-state: paused; }
+#gate.engine-paused #intro-engine * { animation-play-state: paused !important; }
+
+#intro-pressure { --intro-progress: 0%; }
+#intro-pressure > [data-pressure-fill],
+#intro-pressure > .pressure-fill {
+  width: var(--intro-progress);
+  transition: width 120ms linear;
+}
+
+#atmosphere {
+  position: fixed;
+  z-index: 3;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: .56;
+  contain: strict;
+}
+
+@keyframes ve-gear-turn { to { transform: rotate(360deg); } }
+@keyframes ve-tissue-breath {
+  0%, 100% { transform: scale(1, 1) translateY(0); }
+  50% { transform: scale(1.012, 1.018) translateY(-1px); }
+}
+@keyframes ve-core-breath {
+  0%, 100% { opacity: .42; transform: scale(.94); }
+  50% { opacity: .88; transform: scale(1.04); }
+}
+@keyframes ve-heartbeat {
+  0%, 45%, 100% { transform: scale(1); }
+  17% { transform: scale(1.075); }
+  28% { transform: scale(1.025); }
+  35% { transform: scale(1.05); }
+}
+@keyframes ve-fiber-awaken {
+  0% { stroke-dashoffset: 1; opacity: 0; }
+  14% { opacity: .7; }
+  100% { stroke-dashoffset: 0; opacity: .96; }
+}
+@keyframes ve-steam-rise {
+  0% { opacity: 0; transform: translate(0, 8px) scale(.93); }
+  20% { opacity: .14; }
+  55% { opacity: .2; }
+  100% { opacity: 0; transform: translate(12px, -42px) scale(1.12); }
+}
+@keyframes ve-bubble-rise {
+  0% { opacity: 0; transform: translateY(14px); }
+  20% { opacity: .5; }
+  85% { opacity: .3; }
+  100% { opacity: 0; transform: translateY(-48px); }
+}
+@keyframes ve-mote-drift {
+  0%, 100% { opacity: .1; transform: translate(0, 0); }
+  45% { opacity: .5; }
+  50% { transform: translate(7px, -13px); }
+}
+
+@media (max-width: 620px) {
+  #intro-engine .engine-svg { max-height: 48vh; }
+  #intro-engine .engine-steam--three { display: none; }
+  #atmosphere { opacity: .46; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #intro-engine, #intro-engine::before { transition: opacity 180ms ease; }
+  #intro-engine .engine-svg * {
+    animation: none !important;
+    transition-duration: 180ms !important;
+  }
+  #intro-engine .engine-core-glow { opacity: .68; }
+  #intro-engine .engine-heart { opacity: .9; }
+  #gate.engine-growing #intro-engine .engine-fiber {
+    stroke-dashoffset: 0;
+    opacity: .9;
+  }
+  #gate.shutters-open #intro-engine { transform: none; }
+  #intro-pressure > [data-pressure-fill],
+  #intro-pressure > .pressure-fill { transition: none; }
+  #atmosphere { opacity: .3; }
+}
