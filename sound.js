@@ -1,17 +1,19 @@
 (() => {
   'use strict';
   const tracks = [
-    {id:'clockwork',title:'Romantic Violin',subtitle:'Csárdás: Csardas
-',file:'assets/audio/Romantic-Violin.mp3',source:'https://music.youtube.com/watch?v=4X5CXo2AX6I'},
-    {id:'orchestra',title:'Waltz No.2',subtitle:'Cihat Aşkın',file:'assets/audio/Waltz-No.2.mp3',source:'https://music.youtube.com/watch?v=Lj-oZRVqPew'}
+    {id:'romantic-violin',title:'Romantic Violin',subtitle:'Csárdás / Csardas',artist:'',file:'assets/audio/Romantic Violin.mp3',source:'https://music.youtube.com/watch?v=4X5CXo2AX6I'},
+    {id:'waltz-no2',title:'Waltz No.2',subtitle:'Cihat Aşkın',artist:'Cihat Aşkın',file:'assets/audio/Waltz No.2.mp3',source:'https://music.youtube.com/watch?v=Lj-oZRVqPew'}
   ];
+  // Labels and credits use these records; replaced MP3s refresh on each visit.
+  const musicRevisionKey=Date.now().toString(36);
+  const musicURL=file=>file+(file.includes('?')?'&':'?')+'v='+musicRevisionKey;
   const saved=(key,fallback)=>{try{return localStorage.getItem(key)??fallback;}catch{return fallback;}};
   const save=(key,value)=>{try{localStorage.setItem(key,String(value));}catch{}};
   const level=(key,fallback)=>{const n=Number(saved(key,String(fallback)));return Number.isFinite(n)?Math.max(0,Math.min(1,n)):fallback;};
   const player=new Audio();player.id='vardam-music';player.loop=true;player.preload='none';player.hidden=true;
   const mount=()=>document.body.appendChild(player);
   if(document.body)mount();else document.addEventListener('DOMContentLoaded',mount,{once:true});
-  let current=tracks.find(t=>t.id===saved('vardam.soundtrack','clockwork'))||tracks[0];player.src=current.file;
+  let current=tracks.find(t=>t.id===saved('vardam.soundtrack','romantic-violin'))||tracks[0];player.src=musicURL(current.file);
   let ctx=null,fxBus=null,ambientBus=null,scene='workshop',environment=null,revision=0;
   let consent=false,ambienceState='waiting',lastFx=0,lastFxName='',destroyed=false,musicRevision=0;
   let musicWasPlaying=false;
@@ -25,7 +27,7 @@
     if(destroyed)return null;
     if(!ctx){
       const Context=window.AudioContext||window.webkitAudioContext;if(!Context)return null;
-      ctx=new Context();
+      try{ctx=new Context();}catch{return null;}
       const limiter=ctx.createDynamicsCompressor();limiter.threshold.value=-6;limiter.knee.value=6;limiter.ratio.value=5;limiter.attack.value=.003;limiter.release.value=.15;
       fxBus=ctx.createGain();ambientBus=ctx.createGain();
       fxBus.gain.value=audio.fxEnabled?audio.fxVolume:0;ambientBus.gain.value=audio.ambienceEnabled?audio.ambienceVolume:0;
@@ -128,7 +130,7 @@
     setPage(page){this.setScene(page==='archive'?'deep-core':'workshop');},
     async select(id){
       const next=tracks.find(t=>t.id===id);if(!next||next===current)return;
-      const wasPlaying=this.playing;this.stop();current=next;player.src=next.file;player.currentTime=0;save('vardam.soundtrack',id);changed();if(wasPlaying)await this.toggle();
+      const wasPlaying=this.playing;this.stop();current=next;player.src=musicURL(next.file);player.currentTime=0;save('vardam.soundtrack',id);changed();if(wasPlaying)await this.toggle();
     },
     cue
   };
