@@ -5,17 +5,17 @@ Observatory landscape and living-engine illustration created for this website.
 
 MUSIC
 
-Industrial Music Box
-Kevin MacLeod (incompetech.com)
+Romantic Violin
+Csárdás: Csardas
 Licensed under Creative Commons Attribution 4.0 International.
-https://creativecommons.org/licenses/by/4.0/
-Source: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100812
 
-Machinations
-Kevin MacLeod (incompetech.com)
+Source: https://music.youtube.com/watch?v=4X5CXo2AX6I
+
+Waltz No.2
+Cihat Aşkın 
 Licensed under Creative Commons Attribution 4.0 International.
-https://creativecommons.org/licenses/by/4.0/
-Source: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100510
+
+Source: https://music.youtube.com/watch?v=Lj-oZRVqPew
 
 The original recordings are included as MP3 files. The website controls their
 volume and loops playback. Short mechanical interface effects are synthesized.
