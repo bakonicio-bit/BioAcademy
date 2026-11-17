@@ -36,3 +36,76 @@ body{background:#0a1516;color:var(--ink);font-size:15px}body:before{position:fix
 @keyframes archive-pulse{0%,100%{opacity:.3;stroke-dashoffset:20}50%{opacity:1;stroke-dashoffset:0}}
 @media(prefers-reduced-motion:reduce){.archive-trace{animation:none}}
 @media(max-height:700px){.intro-engine{max-height:35vh;margin-top:0}#gate .gate-titles h1{font-size:34px}#gate #gate-copy{font-size:16px;margin-bottom:12px}.gate-controls{min-height:92px}.gate-centre{height:calc(100% - 108px)}.intro-monitor{bottom:0}}
+
+/* Illustrated atlas and field notebook — update 2026-11-17. */
+.region-art.region-photo{height:auto;aspect-ratio:1672/941;display:block;background:#09171a!important}
+.region-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.region-card:hover .region-photo img{transform:scale(1.025)}
+.world-tabs{flex-wrap:wrap;column-gap:26px;row-gap:0}
+.world-tabs button{min-height:44px}
+.places-introduction{font-size:13px;color:#a9b99f;margin-bottom:25px;line-height:1.8}
+.places-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 22px;margin-bottom:48px}
+.place-card{border:1px solid #b29b6a66;background:linear-gradient(135deg,#1d322e,#102126);color:#e9d9b8;padding:0;text-align:left;box-shadow:0 8px 28px #0003;transition:transform .3s,border-color .3s;overflow:hidden;display:flex;flex-direction:column}
+.place-card:hover{transform:translateY(-4px);border-color:#dbc18e}
+.place-card-art{aspect-ratio:1672/941;overflow:hidden;background:#10232a}
+.place-card-art img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.place-card:hover img{transform:scale(1.035)}
+.place-card-caption{padding:24px;flex:1;display:flex;flex-direction:column}
+.place-card-caption small{font-family:var(--mono);font-size:8px;letter-spacing:1.6px;color:#a4b493}
+.place-card-caption h2{font-family:var(--serif);font-size:30px;line-height:1.08;margin:12px 0;color:#e8d9b3}
+.place-card-caption p{font-size:12px;color:#a6b69e;line-height:1.8;margin:0 0 19px}
+.place-card-caption>span{font-family:var(--mono);font-size:8px;color:#d4ba83;margin-top:auto}
+.place-detail-image{width:100%;height:auto;display:block}
+.place-detail-copy,.creature-detail-copy{padding:32px 38px 38px}
+.place-detail-copy h2,.creature-detail-copy h2{font-size:44px;line-height:1.06;margin:13px 0 20px;color:#ead7ac}
+.place-detail-copy>p:not(.eyebrow),.creature-detail-copy>p:not(.eyebrow){font-size:14px;line-height:1.9;color:#aebeaa;margin-bottom:20px}
+.place-views{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+.place-views button{padding:10px 16px;border:1px solid #9c8c5c66;background:#10252b;color:#b5c1a6;font-size:11px;min-height:44px}
+.place-views button.active{border-color:#c4ac71;background:#344438;color:#ead6a6}
+.landscape-button{border-width:0 0 1px;background:none;padding:10px 0;min-height:44px}
+.full-landscape{padding:25px}
+.full-landscape h2{font-size:32px;margin-bottom:20px;line-height:1.1;color:#e2d0a4}
+.full-landscape img{width:100%;height:auto;max-height:70vh;object-fit:contain;background:#061316}
+.full-landscape>.button{margin-top:22px}
+.region-place-links{margin-top:30px;padding-top:23px;border-top:1px solid #aa965b55}
+.region-place-links h3{font-family:var(--serif);font-size:26px;margin:0 0 15px;color:#dbc89b}
+.region-place-links>div{display:flex;flex-wrap:wrap;gap:10px}
+.region-place-links button{background:#1b342f;border:1px solid #a48c5955;padding:9px 14px;color:#ccbf98;font-size:11px;min-height:42px}
+.creature-card,.creature-card.singular{padding:0;overflow:hidden}
+.creature-copy{padding:23px;display:flex;flex-direction:column;flex:1}
+.creature-copy>p{font-size:12px;line-height:1.85}
+.creature-image-button{padding:0;border:0;border-bottom:1px solid #b39d6744;position:relative;background:#08171c;display:block;width:100%;overflow:hidden;flex-shrink:0}
+.creature-image-button img{display:block;width:100%;aspect-ratio:16/10;object-fit:contain;transition:filter .3s,transform .5s}
+.creature-image-button:hover img{filter:brightness(1.07);transform:scale(1.015)}
+.creature-image-button>span{position:absolute;bottom:10px;right:10px;background:#071719dc;border:1px solid #ae985c66;color:#e0c99c;padding:6px 10px;font-family:var(--mono);font-size:7px;letter-spacing:1px}
+.creature-detail>img{width:100%;height:auto;max-height:64vh;object-fit:contain;display:block;background:#061417}
+.creature-detail .detail-meta{margin-bottom:20px;padding-bottom:18px;display:flex;align-items:center;gap:15px}
+
+/* Three independent sound channels; controls stay mounted during playback. */
+.audio-channels{border:1px solid #a38d5b66;background:linear-gradient(130deg,#1d3631,#102329);padding:12px 23px 19px;margin:26px 0 32px}
+.audio-channel{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:24px;align-items:center;padding:15px 0 5px}
+.audio-channel-switch{display:flex;align-items:center;gap:14px;cursor:pointer;min-height:44px}
+.audio-channel-switch>input{width:17px;height:17px;accent-color:#c5aa70;flex-shrink:0}
+.audio-channel-switch strong{font-family:var(--serif);font-weight:500;display:block;font-size:26px;color:#e8d6ac;line-height:1.15}
+.audio-channel-switch small{display:block;color:#a2b69b;font-size:11px;margin-top:5px;line-height:1.5}
+.audio-channel-volume{display:flex;align-items:center;gap:13px;min-height:44px}
+.audio-channel-volume input{width:100%;min-width:0;accent-color:#c7a96d;cursor:pointer;height:24px}
+.audio-channel-volume output{min-width:34px;font-family:var(--mono);font-size:10px;color:#b7c09d;text-align:right}
+.soundtrack-dialog .channel-status{font-family:var(--mono);font-size:8px!important;line-height:1.7;color:#9aaf93!important;margin:2px 0 4px 31px;letter-spacing:.4px;min-height:15px}
+.sfx-test{background:#10292b;border:1px solid #b59d6766;padding:9px 15px;color:#d9c595;font-family:var(--mono);font-size:9px;min-height:40px;margin:10px 0 0 31px}
+.sfx-test:hover{border-color:#dec891;background:#254037}
+.sfx-test:disabled{opacity:.4}
+.soundtrack-dialog>.soundtrack-heading{margin:0 0 15px}
+.soundtrack-dialog .music-tracks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.soundtrack-dialog .music-track{margin:0;padding:20px 17px;min-width:0}
+.soundtrack-dialog .music-track strong{font-size:28px;line-height:1.1;margin:10px 0;display:block}
+.soundtrack-dialog .music-track small{font-size:7px;line-height:1.8}
+.soundtrack-dialog .music-track>span{font-size:11px;color:#afc1a1}
+.soundtrack-dialog>.music-credit{line-height:1.9;margin-top:25px;font-size:10px!important}
+@media(max-width:1000px){.places-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.audio-channel{grid-template-columns:minmax(0,1fr) 160px;gap:16px}}
+@media(max-width:600px){
+ .places-grid{grid-template-columns:1fr;gap:22px;margin-bottom:35px}.places-introduction{font-size:12px}.place-card-caption{padding:23px}.place-card-caption h2{font-size:32px}.place-card-caption p{font-size:13px}.place-card-caption>span{font-size:9px}
+ .place-detail-copy,.creature-detail-copy{padding:24px}.place-detail-copy h2,.creature-detail-copy h2{font-size:36px}.place-detail-copy>p:not(.eyebrow),.creature-detail-copy>p:not(.eyebrow){font-size:13px}.place-views button{font-size:10px;padding:10px 12px}.full-landscape{padding:20px}.full-landscape h2{font-size:30px}.creature-copy{padding:19px}.creature-copy h2{font-size:29px}.creature-image-button>span{font-size:6px;padding:5px 7px;bottom:6px;right:6px}
+ .audio-channels{padding:8px 17px 17px;margin:22px 0 27px}.audio-channel{grid-template-columns:1fr;gap:6px;padding-top:15px}.audio-channel-switch strong{font-size:26px}.audio-channel-volume{margin-left:31px;min-height:34px}.audio-channel-switch small{font-size:11px}.soundtrack-dialog .channel-status{font-size:7px!important;margin-bottom:7px}.soundtrack-dialog .music-tracks{grid-template-columns:1fr}.soundtrack-dialog .music-track strong{font-size:28px}.sfx-test{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){.region-photo img,.place-card,.place-card-art img,.creature-image-button img{transition:none}.region-card:hover .region-photo img,.place-card:hover img,.creature-image-button:hover img{transform:none}}
